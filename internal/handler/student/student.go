@@ -68,13 +68,13 @@ func (handler *handler) HandleCreateStudent(w http.ResponseWriter, r *http.Reque
 	// Parse age
 	age, err := strconv.Atoi(r.URL.Query().Get("age"))
 	if err != nil {
-		return errors.New("age is empty")
+		return errors.New("cannot parse age")
 	}
 
 	// Parse grade
 	grade, err := strconv.Atoi(r.URL.Query().Get("grade"))
 	if err != nil {
-		return errors.New("grade is empty")
+		return errors.New("cannot parse grade")
 	}
 
 	// Call usecase
@@ -112,13 +112,13 @@ func (handler *handler) HandleUpdateStudent(w http.ResponseWriter, r *http.Reque
 	// Parse age
 	age, err := strconv.Atoi(r.URL.Query().Get("age"))
 	if err != nil {
-		return errors.New("age is empty")
+		return errors.New("cannot parse age")
 	}
 
 	// Parse grade
 	grade, err := strconv.Atoi(r.URL.Query().Get("grade"))
 	if err != nil {
-		return errors.New("grade is empty")
+		return errors.New("cannot parse grade")
 	}
 
 	// Call usecase
