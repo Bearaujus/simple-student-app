@@ -17,10 +17,8 @@ type route struct {
 
 func InitRouter(sh studentHandler.HandlerItf) *chi.Mux {
 	router := chi.NewRouter()
-	router.Use(middleware.RequestID)
-	router.Use(middleware.RealIP)
 	router.Use(middleware.Logger)
-	router.Use(middleware.Recoverer)
+	router.MethodNotAllowed(http.NotFound)
 
 	var routes []route = []route{
 		{
@@ -58,7 +56,7 @@ func InitRouter(sh studentHandler.HandlerItf) *chi.Mux {
 }
 
 func createRoutes(router *chi.Mux, pattern string, methods []string, handler http.Handler) {
-	for _, v := range methods {
-		router.Method(v, pattern, handler)
+	for _, method := range methods {
+		router.Method(method, pattern, handler)
 	}
 }
