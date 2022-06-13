@@ -3,6 +3,7 @@ module github.com/Bearaujus/simple-student-app
 go 1.18
 
 require (
+	github.com/Bearaujus/bthreads v0.0.0-20220612151407-df9e1eb58ead
 	github.com/fatih/color v1.13.0
 	github.com/go-chi/chi v1.5.4
 	github.com/mattn/go-sqlite3 v1.14.13
